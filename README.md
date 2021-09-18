@@ -25,13 +25,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ### Vue.js 기초
-```
-1. 뷰 인스턴스 생성 : {{ variable }}
-2. 뷰 데이터(data)와 메소드(methods) : {{ function_name('arg') }}
-3. 데이터 바인딩 : V-bind:type -> :type
-- 기본 태그 : <input type="text" value="hello"> 
-- 데이터 바인딩 : <input v-bind:type="text변수" v-bind:value="hello변수"> 
-- 축약형 : v-bind:type="변수" -> :type="변수"
+
+1. 뷰 인스턴스 생성
+  {{ variable }}
+2. 뷰 데이터(data)와 메소드(methods)
+  {{ function_name('arg') }}
+3. 데이터 바인딩
+  V-bind:type -> :type
+  - 기본 태그 : <input type="text" value="hello"> 
+  - 데이터 바인딩 : <input v-bind:type="text변수" v-bind:value="hello변수"> 
+  - 축약형 : v-bind:type="변수" -> :type="변수"
 4. 이벤트 바인딩 : v-on:click -> @click
 - 기본형 : <button onclick="alert()"></button>
 - 이벤트 바인딩 : <button v-on:click="alert()">
@@ -112,4 +115,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 19. 뷰 인스턴스 라이프사이클
 - created(), mounted(), updated(), destroyed()
 - beforeCreate(), beforeMount(), beforeUpdate(), beforeDestroy()
-```
