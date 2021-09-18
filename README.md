@@ -25,7 +25,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ### Vue.js 기초
-
+```
 1. 뷰 인스턴스 생성 : {{ variable }}
 2. 뷰 데이터(data)와 메소드(methods) : {{ function_name('arg') }}
 3. 데이터 바인딩 : V-bind:type -> :type
@@ -112,3 +112,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 19. 뷰 인스턴스 라이프사이클
 - created(), mounted(), updated(), destroyed()
 - beforeCreate(), beforeMount(), beforeUpdate(), beforeDestroy()
+```
