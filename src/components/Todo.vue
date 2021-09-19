@@ -1,24 +1,28 @@
 <template>
-  <v-row justify="center" dense no-gutters>
-    <v-col
-      cols="12"
-      sm="10"
-      md="8"
-      lg="6"
-    >
-      <v-container
-        class="py-0"
-        fluid
-        dense
-      >
+  <v-list-item>
+      <v-list-item-action>
         <v-checkbox
           dense
           v-model="todo.checked"
-          :label="todo.text"
-        ></v-checkbox>
-      </v-container>
-    </v-col>
-  </v-row>
+          @change="toggleCheckbox"
+        >
+          <template v-slot:label>
+            <div
+              :class="todo.checked ? 'text-decoration-line-through' : ''"
+              class="ml-2"
+              v-text="todo.text"
+            ></div>
+          </template>
+        </v-checkbox>
+
+      </v-list-item-action>
+      <v-spacer/>
+      <v-btn
+        icon
+        @click="btnClicked"
+      ><v-icon>mdi-delete</v-icon>
+      </v-btn>
+  </v-list-item>
 </template>
 
 <script>
@@ -31,10 +35,20 @@ export default {
   },
   data () {
     return {
-
+      lineThrough: ''
     }
   },
   methods: {
+    toggleCheckbox (e) {
+      this.$emit('toggle-checkbox', {
+        id: this.todo.id,
+        checked: e
+      })
+    },
+    btnClicked (e) {
+      // console.log(e, this.todo.id)
+      this.$emit('btn-clicked', this.todo.id)
+    }
   }
 }
 </script>

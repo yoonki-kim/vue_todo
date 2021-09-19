@@ -20,14 +20,24 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <Todo
-          v-for="todo in todos"
-          :key="todo.id"
-          :todo="todo"
-        />
+        <v-row justify="center" class=mt-5>
+          <v-col
+            cols="12"
+            sm="10"
+            md="8"
+            lg="6"
+          >
+            <Todo
+              v-for="todo in todos"
+              :key="todo.id"
+              :todo="todo"
+              @toggle-checkbox="toggleCheckbox"
+              @btn-clicked="deleteTodo"
+              />
+          </v-col>
+        </v-row>
       </v-card>
     </v-container>
-
   </v-app>
 </template>
 
@@ -49,10 +59,21 @@ export default {
   },
   methods: {
     addTodo (e) {
-      console.log(e.target.value, Date.now())
       if (!e.target.value) return
       this.todos.push({ id: Date.now(), text: e.target.value, checked: false })
       this.inputText = ''
+    },
+    toggleCheckbox ({ id, checked }) {
+      const index = this.todos.findIndex(todo => {
+        return todo.id === id
+      })
+      this.todos[index].checked = checked
+    },
+    deleteTodo (id) {
+      const index = this.todos.findIndex(todo => {
+        return todo.id === id
+      })
+      this.todos.splice(index, 1)
     }
   }
 
