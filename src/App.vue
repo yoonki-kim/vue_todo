@@ -1,55 +1,53 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-container >
+      <v-card class="pa-3">
+        <div class="text-h4 font-weight-bold text-center">Todo App</div>
+        <v-row justify="center" class=mt-5>
+          <v-col
+            cols="12"
+            sm="10"
+            md="8"
+            lg="6"
+          >
+            <v-text-field
+              cols="4"
+              counter="25"
+              hint="This field uses counter prop"
+              label="What are you doing work on?"
+              v-model="inputText"
+              @keyup.enter="addTodo"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <Todo :todos="todos"/>
+      </v-card>
+    </v-container>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
   </v-app>
 </template>
 
 <script>
-
+import Todo from '@/components/Todo.vue'
 export default {
-  name: 'App',
+  components: {
+    Todo
+  },
+  data () {
+    return {
+      todos: [
+        { id: 1, text: 'Buy a car', checked: false },
+        { id: 2, text: 'Play game', checked: false },
+        { id: 3, text: 'Coding a webapp', checked: false }
+      ],
+      inputText: ''
+    }
+  },
+  methods: {
+    addTodo () {
+      this.todos.push({ id: Date.now(), text: this.inputText, checked: false })
+    }
+  }
 
-  data: () => ({
-    //
-  })
 }
 </script>
