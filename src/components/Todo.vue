@@ -13,8 +13,7 @@
       >
         <v-checkbox
           dense
-          v-for="todo in todos"
-          :key="todo"
+          v-model="todo.checked"
           :label="todo.text"
         ></v-checkbox>
       </v-container>
@@ -25,10 +24,17 @@
 <script>
 export default {
   props: {
-    todos: {
+    todo: {
       type: Object,
       required: true
     }
+  },
+  data () {
+    return {
+
+    }
+  },
+  methods: {
   }
 }
 </script>

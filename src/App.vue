@@ -15,12 +15,16 @@
               counter="25"
               hint="This field uses counter prop"
               label="What are you doing work on?"
-              v-model="inputText"
               @keyup.enter="addTodo"
+              v-model="inputText"
             ></v-text-field>
           </v-col>
         </v-row>
-        <Todo :todos="todos"/>
+        <Todo
+          v-for="todo in todos"
+          :key="todo.id"
+          :todo="todo"
+        />
       </v-card>
     </v-container>
 
@@ -44,8 +48,11 @@ export default {
     }
   },
   methods: {
-    addTodo () {
-      this.todos.push({ id: Date.now(), text: this.inputText, checked: false })
+    addTodo (e) {
+      console.log(e.target.value, Date.now())
+      if (!e.target.value) return
+      this.todos.push({ id: Date.now(), text: e.target.value, checked: false })
+      this.inputText = ''
     }
   }
 
