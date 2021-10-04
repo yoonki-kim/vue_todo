@@ -43,6 +43,7 @@
 
 <script>
 import Todo from '@/components/Todo.vue'
+
 export default {
   components: {
     Todo
@@ -56,6 +57,13 @@ export default {
       ],
       inputText: ''
     }
+  },
+  created () {
+    console.log('created')
+    console.log(this.$firebase)
+  },
+  mounted () {
+    console.log('mounted')
   },
   methods: {
     addTodo (e) {
