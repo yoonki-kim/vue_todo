@@ -1,9 +1,14 @@
 <template>
   <v-app>
-    <v-container >
+    <v-container>
       <v-card class="pa-3">
-        <div class="text-h4 font-weight-bold text-center">Todo App</div>
-        <v-row justify="center" class=mt-5>
+        <div class="text-h4 font-weight-bold text-center">
+          Todo App
+        </div>
+        <v-row
+          justify="center"
+          class="mt-5"
+        >
           <v-col
             cols="12"
             sm="10"
@@ -11,16 +16,19 @@
             lg="6"
           >
             <v-text-field
+              v-model="inputText"
               cols="4"
               counter="25"
               hint="This field uses counter prop"
               label="What are you doing work on?"
               @keyup.enter="addTodo"
-              v-model="inputText"
-            ></v-text-field>
+            />
           </v-col>
         </v-row>
-        <v-row justify="center" class=mt-5>
+        <v-row
+          justify="center"
+          class="mt-5"
+        >
           <v-col
             cols="12"
             sm="10"
@@ -33,7 +41,7 @@
               :todo="todo"
               @toggle-checkbox="toggleCheckbox"
               @btn-clicked="deleteTodo"
-              />
+            />
           </v-col>
         </v-row>
       </v-card>

@@ -18,9 +18,11 @@
 import Vue from 'vue'
 import { initializeApp } from 'firebase/app'
 // import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'
+import { getFirestore } from 'firebase/firestore/lite'
 import firebaseConfig from '../../firebaseConfig'
 
-const firebase = initializeApp(firebaseConfig)
-// const db = getFirestore(firebase)
+const firebaseApp = initializeApp(firebaseConfig)
+const db = getFirestore(firebaseApp)
 
-Vue.prototype.$firebase = firebase
+Vue.prototype.$firebase = firebaseApp
+Vue.prototype.$firebase = db
