@@ -51,6 +51,7 @@
             </v-col>
           </v-row>
         </v-card>
+        <TestFirestore />
       </v-container>
     </v-main>
   </v-app>
@@ -59,10 +60,11 @@
 <script>
 import Todo from '@/components/Todo.vue'
 import AuthBtn from '@/components/AuthBtn.vue'
+import TestFirestore from '@/components/TestFirestore.vue'
 
 export default {
   components: {
-    Todo, AuthBtn
+    Todo, AuthBtn, TestFirestore
   },
   data () {
     return {

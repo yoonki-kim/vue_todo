@@ -15,20 +15,20 @@
 // ---------------------------------
 // Version 9 SDK
 // ---------------------------------
-import Vue from 'vue'
+// import Vue from 'vue'
 import { initializeApp } from 'firebase/app'
-// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite'
-import { getFirestore } from 'firebase/firestore/lite'
 import firebaseConfig from '../../firebaseConfig'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
+import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore/lite'
 
 const firebaseApp = initializeApp(firebaseConfig)
-const db = getFirestore(firebaseApp)
 
 export const auth = getAuth()
 auth.languageCode = 'ko'
-
 connectAuthEmulator(auth, 'http://localhost:9099')
 
-Vue.prototype.$firebase = firebaseApp
-Vue.prototype.$firebase = db
+export const db = getFirestore(firebaseApp)
+connectFirestoreEmulator(db, 'http://localhost:5002')
+
+// Vue.prototype.$firebase = firebaseApp
+// Vue.prototype.$firebase = db
