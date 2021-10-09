@@ -19,7 +19,7 @@
 import { initializeApp } from 'firebase/app'
 import firebaseConfig from '../../firebaseConfig'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
-import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore/lite'
+import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore'
 
 const firebaseApp = initializeApp(firebaseConfig)
 
@@ -28,7 +28,7 @@ auth.languageCode = 'ko'
 connectAuthEmulator(auth, 'http://localhost:9099')
 
 export const db = getFirestore(firebaseApp)
-connectFirestoreEmulator(db, 'http://localhost:5002')
+connectFirestoreEmulator(db, 'localhost', 5002)
 
 // Vue.prototype.$firebase = firebaseApp
 // Vue.prototype.$firebase = db

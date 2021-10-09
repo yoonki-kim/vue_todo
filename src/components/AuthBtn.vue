@@ -19,8 +19,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
-  User
+  onAuthStateChanged
 } from 'firebase/auth'
 import { auth } from '@/plugins/firebase.js'
 
@@ -28,7 +27,7 @@ const provider = new GoogleAuthProvider()
 export default {
   data () {
     return {
-      user: User | null
+      user: null
     }
   },
   mounted () {
