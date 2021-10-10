@@ -13,21 +13,18 @@
         read
       </v-btn>
       <v-switch
+        v-model="autoRead"
         label="auto"
         class="ml-2"
         @change="onChange"
       />
     </v-card-actions>
     <v-list>
-      <v-list-item
-        v-for="(item, i) in items"
-        :key="i"
-      >
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-          <v-list-item-subtitle>{{ item.body }}</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+      <TestFirestoreItem
+        v-for="snapshot in snapshots"
+        :key="snapshot.id"
+        :snapshot="snapshot"
+      />
     </v-list>
   </v-card>
 </template>
@@ -40,21 +37,24 @@ import {
   onSnapshot
 } from 'firebase/firestore'
 import { db } from '@/plugins/firebase.js'
+import TestFirestoreItem from '@/components/TestFirestoreItem.vue'
 
 const colectionDb = collection(db, 'articles')
 export default {
+  components: {
+    TestFirestoreItem
+  },
   data () {
     return {
       title: '',
       body: '',
       unsubscribe: null,
-      snapshots: []
+      snapshots: [],
+      autoRead: true
     }
   },
-  computed: {
-    get items () {
-      return this.snapshots.map(doc => doc.data())
-    }
+  mounted () {
+    this.subscribe()
   },
   destroyed () {
     this.releaseSubscribe()
@@ -94,7 +94,7 @@ export default {
       if (auto) {
         this.subscribe()
       } else {
-        this.releaseSub()
+        this.releaseSubscribe()
       }
     }
   }

@@ -42,7 +42,6 @@ export default {
     },
     init () {
       onAuthStateChanged(auth, user => {
-        console.log(user)
         this.user = user
       })
     }

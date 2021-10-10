@@ -77,11 +77,11 @@ export default {
     }
   },
   created () {
-    console.log('created')
+    // console.log('created')
     // console.log(this.$firebase)
   },
   mounted () {
-    console.log('mounted')
+    // console.log('mounted')
   },
   methods: {
     addTodo (e) {
