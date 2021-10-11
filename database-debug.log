@@ -1,7 +1,7 @@
-19:36:04.500 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-19:36:05.332 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
-16:29:42.743 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-16:29:42.790 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: vue-todo-72400-default-rtdb
-16:29:42.807 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for vue-todo-72400-default-rtdb
-16:29:42.810 [NamespaceSystem-akka.actor.default-dispatcher-11] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for vue-todo-72400-default-rtdb
-16:29:42.842 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+09:01:10.610 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+09:01:10.984 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+09:03:23.629 [Thread-0] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+09:03:23.640 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: vue-todo-72400-default-rtdb
+09:03:23.648 [NamespaceSystem-akka.actor.default-dispatcher-8] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for vue-todo-72400-default-rtdb
+09:03:23.649 [NamespaceSystem-akka.actor.default-dispatcher-8] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for vue-todo-72400-default-rtdb
+09:03:23.652 [Thread-0] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

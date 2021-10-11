@@ -1,27 +1,27 @@
 <template>
   <v-list-item>
-      <v-list-item-action>
-        <v-checkbox
-          dense
-          v-model="todo.checked"
-          @change="toggleCheckbox"
-        >
-          <template v-slot:label>
-            <div
-              :class="todo.checked ? 'text-decoration-line-through' : ''"
-              class="ml-2"
-              v-text="todo.text"
-            ></div>
-          </template>
-        </v-checkbox>
-
-      </v-list-item-action>
-      <v-spacer/>
-      <v-btn
-        icon
-        @click="btnClicked"
-      ><v-icon>mdi-delete</v-icon>
-      </v-btn>
+    <v-list-item-action>
+      <v-checkbox
+        v-model="todo.checked"
+        dense
+        @change="toggleCheckbox"
+      >
+        <template v-slot:label>
+          <div
+            :class="todo.checked ? 'text-decoration-line-through' : ''"
+            class="ml-2"
+            v-text="todo.text"
+          />
+        </template>
+      </v-checkbox>
+    </v-list-item-action>
+    <v-spacer />
+    <v-btn
+      icon
+      @click="btnClicked"
+    >
+      <v-icon>mdi-delete</v-icon>
+    </v-btn>
   </v-list-item>
 </template>
 
